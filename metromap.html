@@ -13,5 +13,12 @@
 </head>
 <body>
     <img src="images/metro11.png" alt="抱歉，图片找不到了😓">
+    <script>
+        const target = document.querySelectorAll('a');
+        target.forEach(elem => {
+            elem.target = '_blank';
+            elem.rel = '';
+        });
+    </script>
 </body>
 </html>
