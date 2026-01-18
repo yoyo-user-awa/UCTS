@@ -27,6 +27,21 @@
         nav ul{
             padding: 0;
         }
+        hr {
+            align-self: stretch; /* 让 <hr> 沿主轴拉伸 */
+            border: 2px solid rgb(152, 152, 152); /* 设置边框样式 */
+            flex-basis: 0px; /* 设置基础高度 */
+            flex-grow: 0; /* 防止高度被拉伸 */
+            margin-top: 50px;
+            margin-left: 0;
+            margin-right: 0;
+            margin-bottom: 50px;
+        }
+        #download{
+            font-size: 2em;
+            border-radius: 8px;
+            background-color: #4ac0f7;
+        }
     </style>
 </head>
 <body>
@@ -39,6 +54,9 @@
             <li><a href="metromap.html">UCTS地图</a></li>
         </ul>
     </nav>
+    <hr>
+    <div id="download"><a href="public/" download="膨胀粉.nbc">点击下载膨胀粉nbc文件</a></div>
+    <p>导入NB化学实验室网站即可使用</p>
     <script>
         const target = document.querySelectorAll('a');
         target.forEach(elem => {
