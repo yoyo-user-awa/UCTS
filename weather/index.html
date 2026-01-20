@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @font-face {
+            font-family: 'CuYuan';
+            src: url("../fonts/CuYuan.ttf")format("truetype");
+        }
+        body{
+            height: 100%;
+            display: flex;
+            background-color: #4df;
+            flex-direction: column;
+            align-items: center;
+            font-family: 'CuYuan';
+        }
+        .title{
+            color:#2e58ff
+        }
+        hr {
+            align-self: stretch; /* 让 <hr> 沿主轴拉伸 */
+            border: 2px solid rgb(15, 37, 65); /* 设置边框样式 */
+            flex-basis: 0px; /* 设置基础高度 */
+            flex-grow: 0; /* 防止高度被拉伸 */
+            margin-top: 50px;
+            margin-left: 0;
+            margin-right: 0;
+            margin-bottom: 50px;
+        }
+        p{
+            color: #455ec0
+        }
+    </style>
+</head>
+<body>
+    <h1 class="title">UCTS市天气</h1>
+    <p id="UCTS-temp"></p>
+    <p id="UCTS-type"></p>
+    <p id="UCTS-air"></p>
+    <hr>
+    <h1 class="title">Lemon市天气</h1>
+    <p id="L-temp"></p>
+    <p id="L-type"></p>
+    <p id="L-air"></p>
+    <hr>
+    <h1 class="title">Utw市天气</h1>
+    <p style="color:red">温度：1000</p>
+    <p style="color:red">暴雪</p>
+    <p style="color: red;">空气质量：1000</p>
+    <hr>
+    <h1 class="title">PTC市天气</h1>
+    <p id="PTC-temp"></p>
+    <p id="PTC-type"></p>
+    <p id="PTC-air"></p>
+    <hr>
+    <h1 class="title">UVS市天气</h1>
+    <p id="UVS-temp"></p>
+    <p id="UVS-type"></p>
+    <p id="UVS-air"></p>
+    <hr>
+    <h1 class="title">GC3市天气</h1>
+    <p id="GC3-temp"></p>
+    <p id="GC3-type"></p>
+    <p id="GC3-air"></p>
+    <hr>
+    <h1 class="title">Eug市天气</h1>
+    <p id="Eug-temp"></p>
+    <p id="Eug-type"></p>
+    <p id="Eug-air"></p>
+    <hr>
+    <h1 class="title">5U市天气</h1>
+    <p id="5U-temp"></p>
+    <p id="5U-type"></p>
+    <p id="5U-air"></p>
+    <hr>
+    <h1 class="title">FOREST市天气</h1>
+    <p id="F-temp"></p>
+    <p id="F-type"></p>
+    <p id="F-air"></p>
+    <hr>
+    <h1 class="title">CHPC市天气</h1>
+    <p id="CH-temp"></p>
+    <p id="CH-type"></p>
+    <p id="CH-air"></p>
+    <script>
+        function randInt(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+
+        const weathers = [
+        // 常见天气 - 占70%
+        '晴天', '晴天', '晴天', '晴天', '晴天', '晴天', '晴天',
+        '多云', '多云', '多云', '多云', '多云', '多云',
+        '阴天', '阴天', '阴天', '阴天', '阴天',
+        '小雨', '小雨', '小雨', '小雨', '小雨',
+        '阵雨', '阵雨', '阵雨', '阵雨',
+        '雷阵雨', '雷阵雨', '雷阵雨',
+        
+        // 较常见天气 - 占20%
+        '中雨', '中雨', '中雨',
+        '大雨', '大雨',
+        '小雪', '小雪',
+        '中雪',
+        '雾',
+        '大风', '大风',
+        '微风', '微风',
+        '暴雨',
+        '暴雪',
+        
+        // 不常见天气 - 占10%
+        '雨夹雪',
+        '冻雨',
+        '冰雹',
+        '霜冻',
+        '沙尘暴',
+        '台风',
+        '龙卷风',
+        '飓风',
+        '干旱',
+        '高温',
+        '寒潮',
+        '闷热'
+        ];
+
+        class Country{
+            constructor(name) {
+                this.temp = document.getElementById(`${name}-temp`);
+                this.type = document.getElementById(`${name}-type`);
+                this.air = document.getElementById(`${name}-air`);
+            }
+        }
+        const contries = {
+            ucts : new Country('UCTS'),
+            lemon : new Country('L'),
+            ptc : new Country('PTC'),
+            uvs : new Country('UVS'),
+            gc3 : new Country('GC3'),
+            eug : new Country('Eug'),
+            i5u : new Country('5U'),
+            forest : new Country('F'),
+            chpc : new Country('CH')
+        };
+        
+        
+        Object.entries(contries).forEach(([k,v])=>{
+            v.temp.innerHTML = `温度：${randInt(-10, 50)}°C`;
+            v.type.innerHTML = `${weathers[randInt(0,56)]}`;
+            v.air.innerHTML = `空气质量：${randInt(0, 325)}`;
+        })
+        
+    </script>
+</body>
+</html>
