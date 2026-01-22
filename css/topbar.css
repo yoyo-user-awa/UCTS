@@ -9,5 +9,17 @@
 }
 
 #topbar #coinText{
-    right: 5px;
+    position: absolute;
+    top: 0;
+    right: 20px;
+    margin: 5px;
+    color: #fd2;
+    text-shadow: 1px 1px 0 #000, -1px -1px 0 #000;
+}
+
+@supports (-webkit-text-stroke: 1px #000) {
+    #topbar #coinText{
+        text-shadow: none;
+        -webkit-text-stroke: 1px #000;
+    }
 }
