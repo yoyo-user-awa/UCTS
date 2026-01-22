@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UCTS 官方网站</title>
+    <script src="libs/databaseUtil.js"></script>
     <link rel="icon" href="images/UCTSLogo.png">
+    <link rel="stylesheet" href="css/topbar.css">
     <style>
         body{
             display: flex;
@@ -46,6 +48,8 @@
     </style>
 </head>
 <body>
+    <div id="topbar"></div>
+    <script src="libs/loadTopbar.js"></script>
     <h1 style="color:white">UCTS官方网站</h1>
     <img src="images/UCTSLogo.png" alt="">
     <nav>
@@ -61,12 +65,6 @@
     <div class="links"><a href="public/膨胀粉.nbc" download="膨胀粉.nbc">点击下载膨胀粉nbc文件</a></div>
     <p>导入NB化学实验室网站即可使用</p>
     <div class="links"><a href="https://space.bilibili.com/523249056/">点击查看UCTS bilibili</a></div>
-    <script>
-        const target = document.querySelectorAll('a');
-        target.forEach(elem => {
-            elem.target = '_blank';
-            elem.rel = '';
-        });
-    </script>
+    <script src="libs/blankize.js"></script>
 </body>
 </html>
