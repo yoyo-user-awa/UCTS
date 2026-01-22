@@ -25,7 +25,7 @@
         }
         img {
             border-radius: 50px;
-            border: 5px solid skyblue
+            border: 5px solid skyblue;
         }
         nav ul{
             padding: 0;
@@ -52,13 +52,22 @@
     <script src="libs/loadTopbar.js"></script>
     <h1 style="color:white">UCTS官方网站</h1>
     <img src="images/UCTSLogo.png" alt="">
+    <script>
+        function clearMoney(){
+            let isContinue = prompt('你确定要清除你所有的UCTS币吗？输入y确定');
+            if (isContinue=='y') DatabaseMngr.clearAll();
+        }
+    </script>
     <nav>
         <ul>
             <li><a href="about.html">关于UCTS</a></li>
             <li><a href="history.html">UCTS历史</a></li>
             <li><a href="metromap.html">UCTS地图</a></li>
             <li><a href="nbmap.html">NB大陆地图</a></li>
+            <li><a href=""></a></li>
             <li><a href="weather/">天气瞎报UCTS版</a></li>
+            <li><button onclick="clearMoney()">清除所有UCTS币</button></li>
+            <li><a href="valid.html">兑换UCTS币</a></li>
         </ul>
     </nav>
     <hr>

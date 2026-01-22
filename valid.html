@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UCTS兑换码</title>
+    <link rel="stylesheet" href="css/loadCuYuan.css">
+    <style>
+        :root {
+        /* GitHub 深色主题颜色变量 */
+        --github-bg-primary: #0d1117;
+        --github-bg-secondary: #161b22;
+        --github-bg-tertiary: #21262d;
+        
+        --github-border: #30363d;
+        --github-border-active: #1f6feb;
+        
+        --github-text-primary: #c9d1d9;
+        --github-text-secondary: #8b949e;
+        --github-text-link: #58a6ff;
+        
+        /* 代码高亮颜色 */
+        --github-code-bg: #161b22;
+        --github-code-text: #c9d1d9;
+        --github-code-keyword: #ff7b72;
+        --github-code-string: #a5d6ff;
+        }
+        body{
+            background-color: var(--github-bg-primary);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        #input{
+            margin: 10vh;
+            width: 400px;
+            height: 40px;
+            border-radius: 5px;
+            border: 2px solid var(--github-border);
+            background-color: var(--github-bg-tertiary);
+        }
+
+        button{
+            border-radius: 5px;
+            border: 2px solid var(--github-border);
+            background-color: var(--github-bg-tertiary);
+            color: var(--github-code-text);
+            width: 80px;
+            height: 50px;
+            font-size: large;
+            font-family: 'CuYuan';
+        }
+
+    </style>
+</head>
+<body>
+    <script src="libs/AA26.js"></script>
+    <script src="libs/validCode.js"></script>
+    <script src="libs/databaseUtil.js"></script>
+    <script>
+        function continueIt(){
+            const inp = document.getElementById('input')
+            const vali = validCode(inp.value);
+            if (!vali.suc) alert('兑换码无效！')
+            else {
+                let added = (DatabaseMngr.getItem('coin')??0)+vali.c;
+                DatabaseMngr.addItem('coin', (DatabaseMngr.getItem('coin')??0)+vali.c);
+                if (vali.t=='VIP') {alert(`尊敬的VIP用户，通过兑换，您的UCTS币余额已变更为${added}`)}
+                else if (vali.t=='PRI') {alert(`通过活动兑换，您的UCTS币余额已变更为${added}`)}
+                else if (vali.t=='NOR') {alert(`通过兑换，您的UCTS币余额已变更为${added}`)};
+            }
+        }
+    </script>
+    <input id="input" type="text" placeholder="输入兑换码...">
+    <button onclick="continueIt()">兑换</button>
+</body>
+</html>

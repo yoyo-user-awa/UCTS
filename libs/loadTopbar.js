@@ -1,4 +1,4 @@
-const {DatabaseMngr: DBM} = window;
+const DBM = DatabaseMngr;
 const doc = document;
 
 const topbar = doc.getElementById('topbar');

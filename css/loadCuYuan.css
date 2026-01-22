@@ -3,6 +3,6 @@
     src: url('../fonts/CuYuan.ttf') format('truetype');
 }
 
-body {
+:root {
     font-family: 'CuYuan', 'Microsoft YaHei', '微软雅黑';
 }

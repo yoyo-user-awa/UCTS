@@ -75,5 +75,3 @@ const DatabaseMngr= {
     }
 
 }
-
-window.DatabaseMngr = DatabaseMngr;
