@@ -62,8 +62,8 @@
     <img src="images/UCTSLogo.png" alt="">
     <script>
         function clearMoney(){
-            let isContinue = prompt('你确定要清除你所有的UCTS币吗？输入y确定');
-            if (isContinue=='y') DatabaseMngr.clearAll();
+            let isContinue = confirm('你确定要清除你所有的UCTS币吗？输入y确定');
+            if (isContinue) DatabaseMngr.clearAll();
         }
     </script>
     <nav>
