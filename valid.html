@@ -39,6 +39,7 @@
             border-radius: 5px;
             border: 2px solid var(--github-border);
             background-color: var(--github-bg-tertiary);
+            color: var(--github-text-primary);
         }
 
         button{
@@ -70,6 +71,7 @@
                 else if (vali.t=='PRI') {alert(`通过活动兑换，您的UCTS币余额已变更为${added}`)}
                 else if (vali.t=='NOR') {alert(`通过兑换，您的UCTS币余额已变更为${added}`)};
             }
+            inp.value = ''
         }
     </script>
     <input id="input" type="text" placeholder="输入兑换码...">
